@@ -1,46 +1,50 @@
 var expect = require('chai').expect;
+var calc = require('../src/main.js');
 
-describe('main', function() {
-  var arr;
-  before(function() {
+describe('Calc', function() {
+  describe('Smoke tests', () => {
+    it('should exists the calc lib', function(){
+      expect(calc).to.be.exist;
+    });
 
+    it('should exists method `sum`', function(){
+      expect(calc.sum).to.be.exist;
+    });
+
+    it('should exists method `sub`', function(){
+      expect(calc.sub).to.be.exist;
+    });
+
+    it('should exists method `mult`', function(){
+      expect(calc.mult).to.be.exist;
+    });
+
+    it('should exists method `div`', function(){
+      expect(calc.div).to.be.exist;
+    });
   });
 
-  after(function() {
-
+  describe('Sum', () => {
+    it('should return 4 when `sum(2,2)`', function(){
+      expect(calc.sum(2,2)).to.be.equal(4);
+    });
   });
 
-  beforeEach(function() {
-    arr = [1,2,3];
+  describe('Sub', () => {
+    it('should return 4 when `sub(6,2)`', function(){
+      expect(calc.sub(6,2)).to.be.equal(4);
+    });
   });
 
-  afterEach(function() {
-
+  describe('Multi', () => {
+    it('should return 4 when `mult(2,2)`', function(){
+      expect(calc.mult(2,2)).to.be.equal(4);
+    });
   });
 
-  it('should be an array', function(){
-    expect(arr).to.be.a('array');
+  describe('Div', () => {
+    it('should return 4 when `div(8,2)`', function(){
+      expect(calc.div(8,2)).to.be.equal(4);
+    });
   });
-
-
-  it('should have a size of 4 when push another value to array', function() {
-    arr.push(arr);
-    expect(arr).to.have.lengthOf(4)
-  });
-
-  it('schould remove the value 3 when user pop in the array', function(){
-    arr.pop();
-    expect(arr).to.not.include(3);
-  });
-
-  it('should return true when pop 3 from the array', function(){
-    expect(arr.pop() === 3).to.be.true;
-  });
-
-
-  it('schould have a sizer of 2 pop a value from the array', function() {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
-  });
-
 })
