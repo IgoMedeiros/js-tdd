@@ -1,46 +1,33 @@
-var expect = require('chai').expect;
 
-describe('main', function() {
-  var arr;
-  before(function() {
+/*
+Desafio FizzBuzz
+Escreva uma lib que receba um número e:
+Se o número for divisível por 3, no lugar do número escreva 'Fizz' - X
+Se o número for divisível por 5, no lugar do número escreva 'Buzz' - X
+Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz' - X
+Se não for múltiplo de nada, retorna o número
+ */
 
+import { expect } from 'chai';
+import FizzBuzz from '../src/main';
+
+describe('Main', () => {
+  it('should return `Fizz` when multiple of 3', () => {
+    expect(FizzBuzz(3)).to.be.equal('Fizz');
+    expect(FizzBuzz(6)).to.be.equal('Fizz');
   });
 
-  after(function() {
-
+  it('should return `Buzz` when multiple of 5', () => {
+    expect(FizzBuzz(5)).to.be.equal('Buzz');
+    expect(FizzBuzz(10)).to.be.equal('Buzz');
   });
 
-  beforeEach(function() {
-    arr = [1,2,3];
+  it('should return `FizzBuzz` when multiple of 3 and 5', () => {
+    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
   });
 
-  afterEach(function() {
-
+  it('should return `number` when non-multiple', () => {
+    expect(FizzBuzz(7)).to.be.equal(7);
   });
 
-  it('should be an array', function(){
-    expect(arr).to.be.a('array');
-  });
-
-
-  it('should have a size of 4 when push another value to array', function() {
-    arr.push(arr);
-    expect(arr).to.have.lengthOf(4)
-  });
-
-  it('schould remove the value 3 when user pop in the array', function(){
-    arr.pop();
-    expect(arr).to.not.include(3);
-  });
-
-  it('should return true when pop 3 from the array', function(){
-    expect(arr.pop() === 3).to.be.true;
-  });
-
-
-  it('schould have a sizer of 2 pop a value from the array', function() {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
-  });
-
-})
+});
